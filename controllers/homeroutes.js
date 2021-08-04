@@ -35,9 +35,10 @@ router.get('/searchone/:id', async (req, res) => {
   // console.log('id---------------------', id)
   try {
     let api = `https://www.googleapis.com/books/v1/volumes/${id}`
-    let singleBookData = await axios.get(api)
-    console.log('single book data',singleBookData.data)
-    res.json(singleBookData.data)
+    let response = await axios.get(api)
+    console.log('single book data')
+    let singleBookData = response.data;
+    res.render('book-detail', singleBookData)
   }
   catch (err){
     res.status(500).json(err)

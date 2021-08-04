@@ -23,9 +23,9 @@ $( ".search-btn" ).click(function() {
 });
 
 $('.book-photo').click(function() {
-  var element = $(this).attr('id')
-  console.log('element', element)
-  var api = `https://www.googleapis.com/books/v1/volumes/${xxx}`
+  var elementId = $(this).attr('id')
+  console.log('element', elementId)
+  document.location.replace(`/searchone/${elementId}`)
+  // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
 
-  fetch()
 })
