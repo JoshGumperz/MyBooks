@@ -9,16 +9,18 @@ router.get('/', async (req, res) => {
 })
 
 // /search
-router.get('/:name', async (req, res) => {
+router.get('/search/:name', async (req, res) => {
   console.log('------------hi from backend--------------')
+  let query = req.params.name;
+  // console.log('query', req.params.name)
   try {
-    let query = req.params.name;
+
     let api = `https://www.googleapis.com/books/v1/volumes?q=${query}`
+    console.log('api------>', api)
     let bookData = await axios.get(api)
-    console.log('bookData-----', bookData.data.items)
+    // console.log('bookData-------', bookData)
     let items = bookData.data.items
-    // res.json(items)
-    // console.log(items[0])
+    // console.log('items--------', items)
     res.render('search', {items})
   }
   catch (err){
