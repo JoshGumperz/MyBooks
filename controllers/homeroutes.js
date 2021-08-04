@@ -10,11 +10,12 @@ router.get('/', async (req, res) => {
 
 // /search
 router.get('/:name', async (req, res) => {
+  console.log('------------hi from backend--------------')
   try {
     let query = req.params.name;
     let api = `https://www.googleapis.com/books/v1/volumes?q=${query}`
     let bookData = await axios.get(api)
-    // console.log('bookData-----', bookData.data.items)
+    console.log('bookData-----', bookData.data.items)
     let items = bookData.data.items
     // res.json(items)
     // console.log(items[0])
