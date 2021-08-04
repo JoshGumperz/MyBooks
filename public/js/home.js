@@ -1,3 +1,6 @@
+$(".login-btn").click(function(){
+  document.location.replace('/api/login')
+})
 
 $( ".search-btn" ).click(function() {
   let input = $('.search-input').val()

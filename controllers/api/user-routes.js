@@ -2,6 +2,20 @@ const router = require('express').Router();
 const { User } = require('../../models')
 
 // /api/login
+
+router.get('/login', (req, res) => {
+    try{
+      if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+      }
+      res.render('login');
+    } catch(err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+});
+
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
