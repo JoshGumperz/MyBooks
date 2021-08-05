@@ -24,14 +24,15 @@ router.post('/:id', withAuth,  async (req, res) => { //withauth
     let descriptionText = convert(singleBookData.volumeInfo.description, {wordwrap: false})
     // console.log('descriptionText-------text version',  descriptionText)
 
-    console.log('array-------',singleBookData.volumeInfo.authors)
-    console.log('true - false', Array.isArray(singleBookData.volumeInfo.authors))
+    // console.log('array-------',singleBookData.volumeInfo.authors)
+    // console.log('true - false', Array.isArray(singleBookData.volumeInfo.authors))
     if(Array.isArray(singleBookData.volumeInfo.authors)) {
       var  authorsInStr = singleBookData.volumeInfo.authors.join('')
-      console.log('after convertttttt insiide if if if-------', authorsInStr)
+      // console.log('after convertttttt insiide if if if-------', authorsInStr)
     }
-    console.log('after convertttttt-------', authorsInStr)
+    // console.log('after convertttttt-------', authorsInStr)
     let title = singleBookData.volumeInfo.title || 'No Title information';
+    let book_id = singleBookData.id
     let authors = authorsInStr || ' No Author Data';
     let description = descriptionText || 'No Description data';
     let release_date = singleBookData.volumeInfo.publishedDate || 'No Release_date info'
@@ -39,6 +40,7 @@ router.post('/:id', withAuth,  async (req, res) => { //withauth
 
     let obj = {
       name: title,
+      book_id: book_id,
       author: authors,
       description: description,
       release_date: release_date,
@@ -56,11 +58,14 @@ router.post('/:id', withAuth,  async (req, res) => { //withauth
     console.log('something wrong!!!!!!!!!')
   }
 })
-// //   /fav-list/
+// //   api/fav-list/
 router.get('/', async (req, res) => {
   console.log("I am the favorite books get route")
   try {
     const bookData = await Book.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
       order: [
         ['createdAt', 'DESC']
       ]

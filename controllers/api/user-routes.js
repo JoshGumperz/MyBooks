@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
             where: {
                 username: req.body.username
             }
-        })
+        }) 
         if(!userData) {
             res.status(500).json({message: "Invalid username or password. Please try again."});
             return;
