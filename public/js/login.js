@@ -16,6 +16,10 @@ const loginFormHandler = async (event) => {
             setTimeout(() => {
                 document.location.replace('/');
             }, 500)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07de2018d394d1a5923107de9fcfbf10c31ea6c8
         } else {
             alert('Failed to log in.');
         }
