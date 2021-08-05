@@ -25,6 +25,13 @@ $('.book-photo').click(function() {
   // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
 })
 
+$('.fav-book-photo').click(function() {
+  var elementId = $(this).attr('id')
+  console.log('element', elementId)
+  document.location.replace(`fav-list/fav-detail/${elementId}`)
+  // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
+})
+
 //add to fav button
 $('.add-fav-btn').click(function() {
   var bookEleId = $(this).siblings('a').attr('id')
