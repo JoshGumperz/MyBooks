@@ -5,7 +5,9 @@ const axios = require('axios');
 const { convert } = require('html-to-text');
 
 router.get('/', async (req, res) => {
-  res.render('homeroute')
+  res.render('homeroute', {
+    loggedIn: req.session.loggedIn
+  })
   // res.send('hello')
 })
 
