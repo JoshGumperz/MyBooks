@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 const { convert } = require('html-to-text');
 
 
-// //   /api/fav-list/SOQGLxkrmiwC
+// //   /api/fav-list/
 router.post('/:id', withAuth,  async (req, res) => { //withauth
   var id = req.params.id;
   // console.log('idddddd----------------', id)
@@ -89,10 +89,27 @@ router.get('/', async (req, res) => {
   }
 })
 
-// router.post('/:id', (req, res) => {
-//   var id = req.params.id;
+router.get('/fav-detail/:id', async (req, res) => {
+  let id = req.params.id; // id example "ptiYBAAAQBAJ"
+  // console.log('id---------------------', id)
+  try {
+    let api = `https://www.googleapis.com/books/v1/volumes/${id}`
+    let response = await axios.get(api)
+    console.log('single book data')
+    let singleBookData = response.data;
+    // id SOQGLxkrmiwC
+    const html = singleBookData.volumeInfo.description
+    const text = convert(html, {
+      wordwrap: null
+    });
+    singleBookData.volumeInfo.description = text;
 
-// })
+    res.render('fav-detail', {...singleBookData, loggedIn: req.session.loggedIn})
+  }
+  catch (err){
+    res.status(500).json(err)
+  }
+})
 
 
 module.exports = router;
