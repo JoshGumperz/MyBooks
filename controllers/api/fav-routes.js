@@ -1,35 +1,62 @@
 const router = require('express').Router();
 const { Book } = require('../../models');
 const axios = require('axios');;
+const withAuth = require('../../utils/auth');
+const { convert } = require('html-to-text');
 
 
-//   /fav-list/book
-router.post('/:id', async (req, res) => {
+// //   /api/fav-list/SOQGLxkrmiwC
+router.post('/:id', withAuth,  async (req, res) => { //withauth
   var id = req.params.id;
-  console.log('idddddd----------------', id)
+  // console.log('idddddd----------------', id)
+  // console.log('plsssssssssss', req.session.loggedIn)
+  // console.log('plsssssssssssfdsfdsafdsfadsf', req.session.user_id)
   try {
     let api = `https://www.googleapis.com/books/v1/volumes/${id}`
     let response = await axios.get(api)
     let singleBookData = response.data;
     // id -- SOQGLxkrmiwC
-    console.log('ssssss', singleBookData)
+    // console.log('ressssdfdsfdsfdsfa---------', response.data)
+    // console.log('singleBookData.volumeInfo.description-----htmlhtml----', singleBookData.volumeInfo.description)
 
+    let noImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png"
 
-    let dbRespond = await Book.create({
-      name: singleBookData.volumeInfo.title,
-      author: singleBookData.volumeInfo.authors,
-      description: singleBookData.volumeInfo.description,
-      release_date: singleBookData.volumeInfo.publishedDate,
-      image_link: singleBookData.volumeInfo.imageLinks.thumbnail,
+    let descriptionText = convert(singleBookData.volumeInfo.description, {wordwrap: false})
+    // console.log('descriptionText-------text version',  descriptionText)
+
+    console.log('array-------',singleBookData.volumeInfo.authors)
+    console.log('true - false', Array.isArray(singleBookData.volumeInfo.authors))
+    if(Array.isArray(singleBookData.volumeInfo.authors)) {
+      var  authorsInStr = singleBookData.volumeInfo.authors.join('')
+      console.log('after convertttttt insiide if if if-------', authorsInStr)
+    }
+    console.log('after convertttttt-------', authorsInStr)
+    let title = singleBookData.volumeInfo.title || 'No Title information';
+    let authors = authorsInStr || ' No Author Data';
+    let description = descriptionText || 'No Description data';
+    let release_date = singleBookData.volumeInfo.publishedDate || 'No Release_date info'
+    let image_link = singleBookData.volumeInfo.imageLinks.thumbnail || noImage;
+
+    let obj = {
+      name: title,
+      author: authors,
+      description: description,
+      release_date: release_date,
+      image_link: image_link,
       user_id: req.session.user_id
-    })
+    }
+    console.log('obj-----------', obj)
+
+
+    let dbRespond = await Book.create(obj)
+    res.status(200).json(dbRespond);
 
   }
   catch (err) {
-    console.log('something wrong')
+    console.log('something wrong!!!!!!!!!')
   }
-
-//   /fav-list/
+})
+// //   /fav-list/
 router.get('/', async (req, res) => {
   console.log("I am the favorite books get route")
   try {
@@ -61,8 +88,6 @@ router.get('/', async (req, res) => {
 //   var id = req.params.id;
 
 // })
-
-
 
 
 module.exports = router;

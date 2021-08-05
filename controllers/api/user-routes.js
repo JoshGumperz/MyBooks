@@ -4,6 +4,7 @@ const { User } = require('../../models')
 // /api/login
 
 router.get('/login', (req, res) => {
+    console.log('from api/login-------------->', req.session.loggedIn)
     try{
       if (req.session.loggedIn) {
         res.redirect('/');
@@ -37,7 +38,7 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true;
-            req.session.user_id = dbUserData.id
+            req.session.user_id = userData.id
             res.status(200).json({
                 user: userData, message: "You are now logged in!"
             })
@@ -55,7 +56,7 @@ router.post('/signup', async (req, res) => {
         username: req.body.username,
         password: req.body.password,
       });
-  
+
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.user_id = dbUserData.id
@@ -66,7 +67,7 @@ router.post('/signup', async (req, res) => {
       res.status(500).json(err);
     }
 });
-  
+
 
 router.post('/logout', (req, res) => {
     if(req.session.loggedIn) {
