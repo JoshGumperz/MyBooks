@@ -8,21 +8,7 @@ $( ".search-btn" ).click(function() {
   console.log('input----', input)
 
   document.location.replace(`/search/${input}`);
-  // fetch(`/search/${input}`, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  // })
 
-  // .then(res => {
-  //   console.log('res----', res)
-  //   if(res.ok) {
-  //     document.location.replace(`/search/${input}`);
-  //   }
-  // })
-
-  // document.location.replace('/testing');
 });
 
 $('.book-photo').click(function() {
@@ -30,5 +16,19 @@ $('.book-photo').click(function() {
   console.log('element', elementId)
   document.location.replace(`/searchone/${elementId}`)
   // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
+})
 
+//add to fav button
+$('.add-fav-btn').click(function() {
+  var bookEleId = $(this).siblings('a').attr('id')
+  // console.log('bookELELELLELLE', bookEleId)
+  fetch(`/fav-list/${bookEleId}`)
+  .then(res => {
+    if(res.ok) {
+      console.log('resssss is good')
+    }
+  })
+  .catch(err => {
+    console.log('something wrong!!!!')
+  })
 })

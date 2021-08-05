@@ -24,7 +24,8 @@ router.get('/search/:name', async (req, res) => {
     // console.log('bookData-------', bookData)
     let items = bookData.data.items
     // console.log('items--------', items)
-    res.render('search', {items})
+
+    res.render('search', {items, loggedIn: req.session.loggedIn})
   }
   catch (err){
     res.status(500).json(err)
