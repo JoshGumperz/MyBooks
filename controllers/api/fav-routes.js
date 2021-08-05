@@ -89,6 +89,7 @@ router.get('/', async (req, res) => {
   }
 })
 
+//  ----- /api/fav-list/fav-detail/:id
 router.get('/fav-detail/:id', async (req, res) => {
   let id = req.params.id; // id example "ptiYBAAAQBAJ"
   // console.log('id---------------------', id)
