@@ -2,6 +2,10 @@ $(".login-btn").click(function(){
   document.location.replace('/api/login')
 })
 
+$(".fav-btn").click(function(){
+  document.location.replace('/api/fav-list')
+})
+
 $( ".search-btn" ).click(function() {
   let input = $('.search-input').val()
   console.log('clicked')
