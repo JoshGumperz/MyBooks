@@ -28,7 +28,7 @@ router.post('/:id', async (req, res) => {
   catch (err) {
     console.log('something wrong')
   }
-
+});
 //   /fav-list/
 router.get('/', async (req, res) => {
   console.log("I am the favorite books get route")
