@@ -13,21 +13,27 @@ Book.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "No Title data"
     },
     author: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "No Author data"
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "No Description data"
     },
     release_date: {
       type: DataTypes.STRING,
+      defaultValue: "No Release_date info"
     },
     image_link: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT,
+      defaultValue: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png"
+
     },
     user_id: {
       type: DataTypes.INTEGER,
