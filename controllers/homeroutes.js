@@ -23,7 +23,7 @@ router.get('/search/:name', async (req, res) => {
     let bookData = await axios.get(api)
     // console.log('bookData-------', bookData)
     let items = bookData.data.items
-    // console.log('items--------', items)
+    console.log('items--------', items)
 
     res.render('search', {items, loggedIn: req.session.loggedIn})
   }
