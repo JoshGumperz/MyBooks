@@ -22,7 +22,7 @@ $('.book-photo').click(function() {
 $('.add-fav-btn').click(function() {
   var bookEleId = $(this).siblings('a').attr('id')
   // console.log('bookELELELLELLE', bookEleId)
-  fetch(`/fav-list/${bookEleId}`)
+  fetch(`api/fav-list/${bookEleId}`)
   .then(res => {
     if(res.ok) {
       console.log('resssss is good')
