@@ -6,8 +6,11 @@ $( ".search-btn" ).click(function() {
   let input = $('.search-input').val()
   console.log('clicked')
   console.log('input----', input)
+  if(input) {
+    document.location.replace(`/search/${input}`);
+  }
 
-  document.location.replace(`/search/${input}`);
+
 
 });
 

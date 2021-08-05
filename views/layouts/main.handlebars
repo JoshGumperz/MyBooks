@@ -13,9 +13,13 @@
   <a href="/"><button>Home</button></a>
   <input class="search-input">
   <button class="search-btn">Search</button>
-  <button class="login-btn">login</button>
+  {{#if loggedIn}}
   <button class="logout-btn">logout</button>
+  {{else}}
+    <button class="login-btn">login</button>
   <button class="signup-btn">Sign up</button>
+  {{/if}}
+
   {{{body}}}
 </body>
 
