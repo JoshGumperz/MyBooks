@@ -23,7 +23,7 @@ router.get('/search/:name', async (req, res) => {
     let bookData = await axios.get(api)
     // console.log('bookData-------', bookData)
     let items = bookData.data.items
-    console.log('items--------', items)
+    // console.log('items--------', items)
 
     res.render('search', {items, loggedIn: req.session.loggedIn})
   }
@@ -40,7 +40,7 @@ router.get('/searchone/:id', async (req, res) => {
   try {
     let api = `https://www.googleapis.com/books/v1/volumes/${id}`
     let response = await axios.get(api)
-    console.log('single book data')
+    // console.log('single book data')
     let singleBookData = response.data;
     // id SOQGLxkrmiwC
     const html = singleBookData.volumeInfo.description
