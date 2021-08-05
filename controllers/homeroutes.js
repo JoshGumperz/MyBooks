@@ -2,6 +2,7 @@ const router = require('express').Router();
 // const { User, Blog, Comment } = require('../models')
 const withAuth = require('../utils/auth');
 const axios = require('axios');
+const { convert } = require('html-to-text');
 
 router.get('/', async (req, res) => {
   res.render('homeroute', {
@@ -40,6 +41,13 @@ router.get('/searchone/:id', async (req, res) => {
     let response = await axios.get(api)
     console.log('single book data')
     let singleBookData = response.data;
+
+    const html = singleBookData.volumeInfo.description
+    const text = convert(html, {
+      wordwrap: null
+    });
+    singleBookData.volumeInfo.description = text;
+
     res.render('book-detail', singleBookData)
   }
   catch (err){
