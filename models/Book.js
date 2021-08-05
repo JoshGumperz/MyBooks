@@ -11,6 +11,10 @@ Book.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    book_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
