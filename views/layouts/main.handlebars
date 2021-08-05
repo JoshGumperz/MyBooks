@@ -14,9 +14,14 @@
   <input class="search-input">
   <button class="search-btn">Search</button>
   <button class="login-btn">login</button>
+  <button class="logout-btn">logout</button>
   <button class="signup-btn">Sign up</button>
   {{{body}}}
 </body>
 
 <script src="/js/home.js"></script>
+
+{{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+{{/if}}
 </html>
