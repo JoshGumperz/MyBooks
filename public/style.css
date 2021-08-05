@@ -14,11 +14,3 @@ h1, .h1 {
 title {
     color: white;
 }
-
-a {
-    color: #0d6efd;
-    text-decoration: underline;
-  }
-  a:hover {
-    color: #0a58ca;
-  }
