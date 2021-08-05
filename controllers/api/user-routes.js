@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
             where: {
                 username: req.body.username
             }
-        }) 
+        })
         if(!userData) {
             res.status(500).json({message: "Invalid username or password. Please try again."});
             return;
@@ -60,7 +60,7 @@ router.post('/signup', async (req, res) => {
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.user_id = userData.id
-        res.status(200).json(dbUserData);
+        res.status(200).json(userData);
       });
     } catch (err) {
       console.log(err);
