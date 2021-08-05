@@ -1,6 +1,6 @@
 <h1> Book description</h1>
 <div>
-    <a href="#" id="{{item.id}}">
+    <a href="#" id="{{id}}">
         {{#if volumeInfo.imageLinks.thumbnail}}
         <img src="{{volumeInfo.imageLinks.thumbnail}}">
         {{else}}
@@ -11,5 +11,7 @@
         <p>Description: {{volumeInfo.description}} </p>
         <p>Release Date: {{volumeInfo.publishedDate}}</p>
     </a>
+
     <button class='add-fav-btn'>Add to fav</button>
+
 </div>

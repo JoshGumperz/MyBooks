@@ -33,7 +33,7 @@ router.get('/search/:name', async (req, res) => {
 
 })
 
-// / search for one with isbn number
+// / search for one with id number
 router.get('/searchone/:id', async (req, res) => {
   let id = req.params.id; // id example "ptiYBAAAQBAJ"
   // console.log('id---------------------', id)
@@ -49,7 +49,7 @@ router.get('/searchone/:id', async (req, res) => {
     });
     singleBookData.volumeInfo.description = text;
 
-    res.render('book-detail', singleBookData)
+    res.render('book-detail', {...singleBookData, loggedIn: req.session.loggedIn})
   }
   catch (err){
     res.status(500).json(err)
