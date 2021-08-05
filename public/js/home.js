@@ -22,10 +22,14 @@ $('.book-photo').click(function() {
 $('.add-fav-btn').click(function() {
   var bookEleId = $(this).siblings('a').attr('id')
   // console.log('bookELELELLELLE', bookEleId)
-  fetch(`api/fav-list/${bookEleId}`)
+  fetch(`/api/fav-list/${bookEleId}`, {
+    method: 'POST'
+  })
   .then(res => {
-    if(res.ok) {
+    // console.log('resssssss', res)
+    if(res.redirected) {
       console.log('resssss is good')
+      document.location.replace('/api/login')
     }
   })
   .catch(err => {
