@@ -33,13 +33,8 @@ $(".search-btn").click(async function () {
     await Swal.fire({
       position: 'center',
       icon: 'success',
-<<<<<<< HEAD
-      title: 'almost there. searching 😀',
-      showConfirmButton: true,
-=======
       title: 'Lets take a look 🔍',
       showConfirmButton: false,
->>>>>>> 5ea82a541794b1d9221e51ce31403fbe22f49338
       timer: 800
     })
     // setTimeout(() => {
@@ -52,6 +47,7 @@ $(".search-btn").click(async function () {
 //NOT LOGIN - When click on one of the search return item
 $('.book-photo').click(function () {
   var elementId = $(this).attr('id')
+
   document.location.replace(`/searchone/${elementId}`)
 })
 
@@ -65,27 +61,16 @@ $('.fav-book-photo').click(function () {
 //add to fav button
 $('.add-fav-btn').click(async function () {
   console.log('add-')
-<<<<<<< HEAD
-  var bookEleId = $(this).siblings('a').attr('id')
-  fetch(`/api/fav-list/${bookEleId}`, {
-    method: 'POST'
-  })
-  .then(res => {
-    if(res.redirected) {
-      console.log('resssss is good')
-
-      document.location.replace('/api/login')
-=======
   try {
     var bookEleId = $(this).siblings('a').attr('id')
-    bookEleId = "bookId"
+    // bookEleId = "bookId"
     var res = await fetch(`/api/fav-list/${bookEleId}`, {
       method: 'POST'
     })
     console.log(res)
     if (res.redirected) {
       console.log("You are not logged in!")
-    } 
+    }
     else if (res.ok) {
       await Swal.fire({
         title: 'added!',
@@ -93,7 +78,6 @@ $('.add-fav-btn').click(async function () {
         icon: 'success',
         confirmButton: true
       })
->>>>>>> 5ea82a541794b1d9221e51ce31403fbe22f49338
     }
   } catch(err) {
     console.log(err)
