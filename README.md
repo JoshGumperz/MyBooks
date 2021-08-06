@@ -53,7 +53,7 @@ If you scale the screen down to a smaller size, you'll see the content adjusts t
 
 ## Deployed Link
 
-* [See Live Site](https://hugh18019.github.io/Drinks-Library/)
+* [See Live Site]()
 
 
 ## Authors
@@ -63,10 +63,10 @@ If you scale the screen down to a smaller size, you'll see the content adjusts t
 - [Link to Github](https://github.com/JoshGumperz)
 
 **Eddie Yeung**
-- [Link to Github](https://github.com/hugh18019)
+- [Link to Github](https://github.com/eycs0317)
 
 **Cristina Tepelikian**
-- [Link to Github](https://github.com/hugh18019)
+- [Link to Github](https://github.com/htepelikian)
 
 ## License
 

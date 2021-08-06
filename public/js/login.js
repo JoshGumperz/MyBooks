@@ -16,21 +16,20 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             await Swal.fire({
                 icon: 'success',
-                title: 'you are log in',
-                text: 'Log in lalalal',
+                title: 'Success, you have logged in!',
+                text: '🐈',
+                showConfirmButton: false,
+                timer: 1500
               })
-            setTimeout(() => {
-                document.location.replace('/');
-            }, 500)
+            document.location.replace('/');
         } else {
-            // await Swal.fire({
-            //     position: 'center',
-            //     icon: 'error',
-            //     title: 'Failed to log in 😅',
-            //     showConfirmButton: false,
-            //     timer: 1500
-            //   })
-            alert('Failed to log in.');
+            await Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Incorrect Username or Password 🤡',
+                showConfirmButton: true,
+              })
+            // alert('Failed to log in.');
         }
     }
 };
@@ -49,23 +48,19 @@ const signupFormHandler = async (event) => {
         });
         // Swal.fire('Thanks for create a new Account!')
         if (response.ok) {
-            console.log(' thanks for log back in')
             await Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'HAHAH I made it work ! 😀',
+                title: 'Account created! 💖',
                 showConfirmButton: false,
                 timer: 1500
               })
-
-            setTimeout(() => {
-                document.location.replace('/');
-            }, 1500)
+            document.location.replace('/');
         } else {
             await Swal.fire({
                 position: 'center',
                 icon: 'error',
-                title: 'No No 😅',
+                title: 'User already exists 😅',
                 showConfirmButton: false,
                 timer: 1500
               })
