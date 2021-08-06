@@ -1,6 +1,8 @@
 //When login button click
-$(".login-btn").click(function(){
+$(".login-btn").click( function(){
+
   document.location.replace('/api/login')
+
 })
 
 //When fav button click
@@ -9,9 +11,35 @@ $(".fav-btn").click(function(){
 })
 
 // WHen search button click
-$( ".search-btn" ).click(function() {
+$( ".search-btn" ).click(async function() {
   let input = $('.search-input').val()
+  if(!input) {
+    Swal.fire({
+    title: 'Type something!!',
+    text: 'hello',
+    icon: 'warning',
+    width: 500,
+    padding: '2em',
+    confirmButtonColor: 'cadetblue',
+    backdrop: `
+    lightblue
+      url("../images/cat1.gif")
+      bottom
+      no-repeat
+    `
+    })
+  }
   if(input) {
+    await Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'almost there. searching 😀',
+      showConfirmButton: false,
+      timer: 800
+    })
+    // setTimeout(() => {
+    //   document.location.replace(`/search/${input}`);
+    // })
     document.location.replace(`/search/${input}`);
   }
 });
@@ -25,11 +53,13 @@ $('.book-photo').click(function() {
 //LOGIN in.
 $('.fav-book-photo').click(function() {
   var elementId = $(this).attr('id')
+
   document.location.replace(`fav-list/fav-detail/${elementId}`)
 })
 
 //add to fav button
-$('.add-fav-btn').click(function() {
+$('.add-fav-btn').click( async function() {
+  console.log('add-')
   var bookEleId = $(this).siblings('a').attr('id')
   fetch(`/api/fav-list/${bookEleId}`, {
     method: 'POST'
@@ -37,6 +67,15 @@ $('.add-fav-btn').click(function() {
   .then(res => {
     if(res.redirected) {
       console.log('resssss is good')
+
+    //   await Swal.fire({
+    //   title: 'added!',
+    //   text: 'ADD',
+    //   icon: 'sucess',
+    //   confirmButtonText: 'Cool'
+    // })
+
+
       document.location.replace('/api/login')
     }
   })
@@ -45,7 +84,7 @@ $('.add-fav-btn').click(function() {
   })
 })
 
-$('.remove-fav-btn').click(function(){
+$('.remove-fav-btn').click(async function(){
   var bookEleId = $(this).siblings('a').attr('id')
   fetch(`/api/fav-list/${bookEleId}`, {
     method: 'DELETE'
@@ -56,6 +95,7 @@ $('.remove-fav-btn').click(function(){
     }
     if(res.ok) {
       console.log("res is good")
+
       document.location.replace('/api/fav-list')
     }
   })
