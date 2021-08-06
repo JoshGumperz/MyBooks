@@ -5,12 +5,14 @@ body {
   }
 
 h1 {
-    font-style: italic;
+    font-family: monospace;
     align-items: center;
     text-align: center;
 }
 h1, .h1 {
     font-size: calc(1.1rem + 1.5vw);
+    background-color: lightblue;
+    margin: 10px;
   }
 
 title {
@@ -27,4 +29,24 @@ h2 {
 
   font-family: monospace;
   margin-top: 50px;
+}
+
+.search-btn:hover {
+  background-color: green;
+}
+
+.fav-btn:hover {
+  background-color: green;
+}
+
+.logout-btn:hover {
+  background-color: green;
+}
+
+.login-btn:hover {
+  background-color: green;
+}
+
+button:hover {
+  background-color: green;
 }
