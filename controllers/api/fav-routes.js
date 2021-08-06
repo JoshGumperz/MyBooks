@@ -3,13 +3,24 @@ const { Book } = require('../../models');
 const axios = require('axios');;
 const withAuth = require('../../utils/auth');
 const { convert } = require('html-to-text');
+// const { noExtendLeft } = require('sequelize/types/lib/operators');
 
 
 // -  POST /api/fav-list/
-router.post('/:id', withAuth,  async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
   var id = req.params.id;
 
   try {
+    const checkBook = await Book.findAll({
+      where: {
+        user_id: req.session.user_id,
+        book_id: req.params.id
+      },
+    })
+    if (checkBook.book_id) {
+      return res.status(200).json({ message: "You've already favorited this book!" });
+    }
+
     let api = `https://www.googleapis.com/books/v1/volumes/${id}`
     let response = await axios.get(api)
     let singleBookData = response.data;
@@ -18,11 +29,11 @@ router.post('/:id', withAuth,  async (req, res) => {
     let noImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png"
 
     // If description come in as HTML convert it to TEXT
-    let descriptionText = convert(singleBookData.volumeInfo.description, {wordwrap: false})
+    let descriptionText = convert(singleBookData.volumeInfo.description, { wordwrap: false })
 
     // If authors is a array.
-    if(Array.isArray(singleBookData.volumeInfo.authors)) {
-      var  authorsInStr = singleBookData.volumeInfo.authors.join('')
+    if (Array.isArray(singleBookData.volumeInfo.authors)) {
+      var authorsInStr = singleBookData.volumeInfo.authors.join('')
     }
 
     let title = singleBookData.volumeInfo.title || 'No Title information';
@@ -89,9 +100,9 @@ router.get('/fav-detail/:id', async (req, res) => {
     });
     singleBookData.volumeInfo.description = text;
 
-    res.render('fav-detail', {...singleBookData, loggedIn: req.session.loggedIn})
+    res.render('fav-detail', { ...singleBookData, loggedIn: req.session.loggedIn })
   }
-  catch (err){
+  catch (err) {
     res.status(500).json(err)
   }
 })
