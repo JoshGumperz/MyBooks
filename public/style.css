@@ -32,23 +32,23 @@ h2 {
 }
 
 .search-btn:hover {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 .fav-btn:hover {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 .logout-btn:hover {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 .login-btn:hover {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 button:hover {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 .container {
