@@ -1,11 +1,11 @@
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     background: cadetblue;
     color: black;
   }
 
 h1 {
-    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
     align-items: center;
     text-align: center;
 }
@@ -27,12 +27,13 @@ title {
 
 h2 {
 
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
   margin-top: 50px;
 }
 
 .search-btn {
   background: lightgreen;
+  border: 1px solid lightgreen;
   border-radius: 4px;
   padding: 10px 24px;
   transition-duration: 0.4s;
@@ -44,6 +45,7 @@ h2 {
 
 .fav-btn {
   background: lightgreen;
+  border: 1px solid lightgreen;
   border-radius: 4px;
   padding: 10px 24px;
   transition-duration: 0.4s;
@@ -54,6 +56,7 @@ h2 {
 }
 .logout-btn {
   background: lightgreen;
+  border: 1px solid lightgreen;
   border-radius: 4px;
   padding: 10px 24px;
   transition-duration: 0.4s;
@@ -66,6 +69,7 @@ h2 {
 
 .login-btn {
   background: lightgreen;
+  border: 1px solid lightgreen;
   border-radius: 4px;
   padding: 10px 24px;
   transition-duration: 0.4s;
@@ -76,6 +80,7 @@ h2 {
 
 button {
   background: lightgreen;
+  border: 1px solid lightgreen;
   border-radius: 4px;
   padding: 10px 24px;
   transition-duration: 0.4s;
@@ -99,7 +104,7 @@ div {
 }
 
 .search-input {
-  border: 1px solid grey;
+  border: 1px solid lightgreen;
   border-radius: 5px;
   height: 30px;
   width: 20%;
