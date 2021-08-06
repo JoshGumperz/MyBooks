@@ -7,8 +7,8 @@ const logout = async () => {
     if (response.ok) {
       await Swal.fire({
         icon: 'success',
-        title: 'Bye!!',
-        text: 'Cya!!!!!',
+        title: 'Catch you later!',
+        text: '👋',
         showConfirmButton: false,
         timer:1500
       })
