@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 const { convert } = require('html-to-text');
 
 
-// -  POST /api/fav-list/
+// -  POST /api/fav-list/:id
 router.post('/:id', withAuth,  async (req, res) => {
   var id = req.params.id;
 
