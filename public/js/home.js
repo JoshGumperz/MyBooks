@@ -62,7 +62,7 @@ $('.add-fav-btn').click(async function () {
   console.log('add-')
   try {
     var bookEleId = $(this).siblings('a').attr('id')
-    bookEleId = "bookId"
+    // bookEleId = "bookId"
     var res = await fetch(`/api/fav-list/${bookEleId}`, {
       method: 'POST'
     })
@@ -80,7 +80,6 @@ $('.add-fav-btn').click(async function () {
     }
   } catch(err) {
     console.log(err)
-    alert("error")
   }
 })
 
