@@ -69,13 +69,22 @@ $('.add-fav-btn').click(async function () {
     console.log(res)
     if (res.redirected) {
       console.log("You are not logged in!")
+      await Swal.fire({
+        title: 'log in first, stupid!',
+        text: '🤡',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      document.location.replace('/api/login')
     } 
     else if (res.ok) {
       await Swal.fire({
         title: 'added!',
         text: 'ADD',
         icon: 'success',
-        confirmButton: true
+        showConfirmButton: false,
+        timer: 1500
       })
     }
   } catch(err) {
@@ -84,31 +93,25 @@ $('.add-fav-btn').click(async function () {
 })
 
 $('.remove-fav-btn').click(async function () {
-  var bookEleId = $(this).siblings('a').attr('id')
-  fetch(`/api/fav-list/${bookEleId}`, {
-    method: 'DELETE'
-  })
-    .then(res => {
-      if (res.redirected) {
-        document.location.replace('/api/login')
-      }
-      if (res.ok) {
-        console.log("res is good")
-
-        document.location.replace('/api/fav-list')
-      }
+  try {
+    var bookEleId = $(this).siblings('a').attr('id')
+    var res = await fetch(`/api/fav-list/${bookEleId}`, {
+      method: 'DELETE'
     })
-    .catch(err => {
-      console.log('something wrong!!!!')
-    })
+    if(res.redirected) {
+      console.log("You are not logged in!")
+      document.location.replace('/api/login')
+    } else if (res.ok) {
+      await Swal.fire({
+        title: 'removed!',
+        text: 'REMOVE',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      document.location.replace('/api/fav-list')
+    }
+  } catch(err) {
+    console.log(err)
+  }
 })
-// import Swal from 'sweetalert2'
-
-// Swal.fire({
-//   title: 'Error!',
-//   text: 'Do you want to continue',
-//   icon: 'error',
-//   confirmButtonText: 'Cool'
-// })
-
-// console.log('swal', Swal);
