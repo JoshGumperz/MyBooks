@@ -1,27 +1,27 @@
 //When login button click
-$(".login-btn").click( function(){
+$(".login-btn").click(function () {
 
   document.location.replace('/api/login')
 
 })
 
 //When fav button click
-$(".fav-btn").click(function(){
+$(".fav-btn").click(function () {
   document.location.replace('/api/fav-list')
 })
 
 // WHen search button click
-$( ".search-btn" ).click(async function() {
+$(".search-btn").click(async function () {
   let input = $('.search-input').val()
-  if(!input) {
+  if (!input) {
     Swal.fire({
-    title: 'Type something!!',
-    text: 'hello',
-    icon: 'warning',
-    width: 500,
-    padding: '2em',
-    confirmButtonColor: 'cadetblue',
-    backdrop: `
+      title: 'Type something!!',
+      text: 'hello',
+      icon: 'warning',
+      width: 500,
+      padding: '2em',
+      confirmButtonColor: 'cadetblue',
+      backdrop: `
     lightblue
       url("../images/cat1.gif")
       bottom
@@ -29,12 +29,17 @@ $( ".search-btn" ).click(async function() {
     `
     })
   }
-  if(input) {
+  if (input) {
     await Swal.fire({
       position: 'center',
       icon: 'success',
+<<<<<<< HEAD
       title: 'almost there. searching 😀',
       showConfirmButton: true,
+=======
+      title: 'Lets take a look 🔍',
+      showConfirmButton: false,
+>>>>>>> 5ea82a541794b1d9221e51ce31403fbe22f49338
       timer: 800
     })
     // setTimeout(() => {
@@ -45,21 +50,22 @@ $( ".search-btn" ).click(async function() {
 });
 
 //NOT LOGIN - When click on one of the search return item
-$('.book-photo').click(function() {
+$('.book-photo').click(function () {
   var elementId = $(this).attr('id')
   document.location.replace(`/searchone/${elementId}`)
 })
 
 //LOGIN in.
-$('.fav-book-photo').click(function() {
+$('.fav-book-photo').click(function () {
   var elementId = $(this).attr('id')
 
   document.location.replace(`fav-list/fav-detail/${elementId}`)
 })
 
 //add to fav button
-$('.add-fav-btn').click( async function() {
+$('.add-fav-btn').click(async function () {
   console.log('add-')
+<<<<<<< HEAD
   var bookEleId = $(this).siblings('a').attr('id')
   fetch(`/api/fav-list/${bookEleId}`, {
     method: 'POST'
@@ -69,31 +75,50 @@ $('.add-fav-btn').click( async function() {
       console.log('resssss is good')
 
       document.location.replace('/api/login')
+=======
+  try {
+    var bookEleId = $(this).siblings('a').attr('id')
+    bookEleId = "bookId"
+    var res = await fetch(`/api/fav-list/${bookEleId}`, {
+      method: 'POST'
+    })
+    console.log(res)
+    if (res.redirected) {
+      console.log("You are not logged in!")
+    } 
+    else if (res.ok) {
+      await Swal.fire({
+        title: 'added!',
+        text: 'ADD',
+        icon: 'success',
+        confirmButton: true
+      })
+>>>>>>> 5ea82a541794b1d9221e51ce31403fbe22f49338
     }
-  })
-  .catch(err => {
-    console.log('something wrong!!!!')
-  })
+  } catch(err) {
+    console.log(err)
+    alert("error")
+  }
 })
 
-$('.remove-fav-btn').click(async function(){
+$('.remove-fav-btn').click(async function () {
   var bookEleId = $(this).siblings('a').attr('id')
   fetch(`/api/fav-list/${bookEleId}`, {
     method: 'DELETE'
   })
-  .then(res => {
-    if(res.redirected) {
-      document.location.replace('/api/login')
-    }
-    if(res.ok) {
-      console.log("res is good")
+    .then(res => {
+      if (res.redirected) {
+        document.location.replace('/api/login')
+      }
+      if (res.ok) {
+        console.log("res is good")
 
-      document.location.replace('/api/fav-list')
-    }
-  })
-  .catch(err => {
-    console.log('something wrong!!!!')
-  })
+        document.location.replace('/api/fav-list')
+      }
+    })
+    .catch(err => {
+      console.log('something wrong!!!!')
+    })
 })
 // import Swal from 'sweetalert2'
 
