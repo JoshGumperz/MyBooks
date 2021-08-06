@@ -71,11 +71,19 @@ h2 {
   transition-duration: 0.4s;
 }
 .login-btn:hover {
-  background-color: lightgreen;
+  background-color: #4CAF50;
+}
+
+button {
+  background: lightgreen;
+  border-radius: 4px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+
 }
 
 button:hover {
-  background-color: lightgreen;
+  background-color: #4CAF50;
 }
 
 .container {
