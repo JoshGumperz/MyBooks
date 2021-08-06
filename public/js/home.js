@@ -34,12 +34,12 @@ $( ".search-btn" ).click(async function() {
       position: 'center',
       icon: 'success',
       title: 'almost there. searching 😀',
-      showConfirmButton: false,
+      showConfirmButton: true,
       timer: 800
     })
     // setTimeout(() => {
     //   document.location.replace(`/search/${input}`);
-    // })
+    // },500)
     document.location.replace(`/search/${input}`);
   }
 });
