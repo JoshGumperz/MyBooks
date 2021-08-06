@@ -53,7 +53,11 @@ If you scale the screen down to a smaller size, you'll see the content adjusts t
 
 ## Deployed Link
 
+
 * [See Live Site]()
+
+* [See Live Site](https://hugh18019.github.io/Drinks-Library/)
+
 
 
 ## Authors
@@ -67,6 +71,9 @@ If you scale the screen down to a smaller size, you'll see the content adjusts t
 
 **Cristina Tepelikian**
 - [Link to Github](https://github.com/htepelikian)
+
+
+
 
 ## License
 
