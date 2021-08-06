@@ -42,14 +42,34 @@ h2 {
   background-color: #4CAF50;
 }
 
+.fav-btn {
+  background: lightgreen;
+  border-radius: 4px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+
+}
 .fav-btn:hover {
-  background-color: lightgreen;
+  background-color: #4CAF50;
+}
+.logout-btn {
+  background: lightgreen;
+  border-radius: 4px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+
 }
 
 .logout-btn:hover {
-  background-color: lightgreen;
+  background-color: #4CAF50;
 }
 
+.login-btn {
+  background: lightgreen;
+  border-radius: 4px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+}
 .login-btn:hover {
   background-color: lightgreen;
 }
