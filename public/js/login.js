@@ -13,9 +13,9 @@ const loginFormHandler = async (event) => {
         });
         console.log(response)
         if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('Failed to log in.');
+            setTimeout(() => {
+                document.location.replace('/');
+            }, 500)
         }
     }
 };
