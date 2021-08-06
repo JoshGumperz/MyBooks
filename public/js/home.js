@@ -44,6 +44,25 @@ $('.add-fav-btn').click(function() {
     console.log('something wrong!!!!')
   })
 })
+
+$('.remove-fav-btn').click(function(){
+  var bookEleId = $(this).siblings('a').attr('id')
+  fetch(`/api/fav-list/${bookEleId}`, {
+    method: 'DELETE'
+  })
+  .then(res => {
+    if(res.redirected) {
+      document.location.replace('/api/login')
+    }
+    if(res.ok) {
+      console.log("res is good")
+      document.location.replace('/api/fav-list')
+    }
+  })
+  .catch(err => {
+    console.log('something wrong!!!!')
+  })
+})
 // import Swal from 'sweetalert2'
 
 // Swal.fire({
