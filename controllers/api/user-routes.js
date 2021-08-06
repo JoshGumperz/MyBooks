@@ -1,29 +1,28 @@
 const router = require('express').Router();
 const { User } = require('../../models')
 
-// /api/login
-
+// GET -  /api/login
 router.get('/login', (req, res) => {
-    console.log('from api/login-------------->', req.session.loggedIn)
-    try{
-      if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-      }
-      res.render('login');
-    } catch(err) {
-      console.log(err);
-      res.status(500).json(err);
+    try {
+        if (req.session.loggedIn) {
+            res.redirect('/');
+            return;
+        }
+        res.render('login');
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
+//POST -  /api/login
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
             where: {
                 username: req.body.username
             }
-        }) 
+        })
         if(!userData) {
             res.status(500).json({message: "Invalid username or password. Please try again."});
             return;
@@ -31,8 +30,8 @@ router.post('/login', async (req, res) => {
 
         const validPassword = await userData.checkPassword(req.body.password);
 
-        if(!validPassword) {
-            res.status(400).json({message: "Invalid username or password. Please try again."});
+        if (!validPassword) {
+            res.status(400).json({ message: "Invalid username or password. Please try again." });
             return;
         }
 
@@ -50,27 +49,28 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// POST - api/signup
 router.post('/signup', async (req, res) => {
     try {
-      const userData = await User.create({
-        username: req.body.username,
-        password: req.body.password,
-      });
+        const userData = await User.create({
+            username: req.body.username,
+            password: req.body.password,
+        });
 
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.user_id = userData.id
-        res.status(200).json(dbUserData);
+        res.status(200).json(userData);
       });
     } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
-
+// POST - api/logout
 router.post('/logout', (req, res) => {
-    if(req.session.loggedIn) {
+    if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });

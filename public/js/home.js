@@ -1,36 +1,40 @@
+//When login button click
 $(".login-btn").click(function(){
   document.location.replace('/api/login')
 })
 
+//When fav button click
 $(".fav-btn").click(function(){
   document.location.replace('/api/fav-list')
 })
 
+// WHen search button click
 $( ".search-btn" ).click(function() {
   let input = $('.search-input').val()
-  console.log('clicked')
-  console.log('input----', input)
-
-  document.location.replace(`/search/${input}`);
-
+  if(input) {
+    document.location.replace(`/search/${input}`);
+  }
 });
 
+//NOT LOGIN - When click on one of the search return item
 $('.book-photo').click(function() {
   var elementId = $(this).attr('id')
-  console.log('element', elementId)
   document.location.replace(`/searchone/${elementId}`)
-  // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
+})
+
+//LOGIN in.
+$('.fav-book-photo').click(function() {
+  var elementId = $(this).attr('id')
+  document.location.replace(`fav-list/fav-detail/${elementId}`)
 })
 
 //add to fav button
 $('.add-fav-btn').click(function() {
   var bookEleId = $(this).siblings('a').attr('id')
-  // console.log('bookELELELLELLE', bookEleId)
   fetch(`/api/fav-list/${bookEleId}`, {
     method: 'POST'
   })
   .then(res => {
-    // console.log('resssssss', res)
     if(res.redirected) {
       console.log('resssss is good')
       document.location.replace('/api/login')
@@ -40,3 +44,32 @@ $('.add-fav-btn').click(function() {
     console.log('something wrong!!!!')
   })
 })
+
+$('.remove-fav-btn').click(function(){
+  var bookEleId = $(this).siblings('a').attr('id')
+  fetch(`/api/fav-list/${bookEleId}`, {
+    method: 'DELETE'
+  })
+  .then(res => {
+    if(res.redirected) {
+      document.location.replace('/api/login')
+    }
+    if(res.ok) {
+      console.log("res is good")
+      document.location.replace('/api/fav-list')
+    }
+  })
+  .catch(err => {
+    console.log('something wrong!!!!')
+  })
+})
+// import Swal from 'sweetalert2'
+
+// Swal.fire({
+//   title: 'Error!',
+//   text: 'Do you want to continue',
+//   icon: 'error',
+//   confirmButtonText: 'Cool'
+// })
+
+// console.log('swal', Swal);
