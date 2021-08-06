@@ -17,7 +17,8 @@ title {
     color: white;
 }
 
-button {
+.search-input , .search-btn , .fav-btn , .logout-btn , .login-btn {
+
   align-items: center;
-  text-align: center;
+
 }
