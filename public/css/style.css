@@ -92,16 +92,33 @@ button:hover {
   background-color: #4CAF50;
 }
 
-.container {
+.signup-form {
   font-family: Georgia, 'Times New Roman', Times, serif;
   padding: 2px;
   font-size: 20px;
-  border-radius: 25px;
+  border-radius: 20px;
   background: white;
-  padding: 15px;
   width: 300px;
   height: 300px;
+  margin-top: 42px;
+  margin-left: 750px;
 
+
+}
+
+.login-form {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 2px;
+  font-size: 20px;
+  border-radius: 20px;
+  background: white;
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  margin-top: 40px;
+  margin-left: 400px;
+
+}
 }
 
 div {
