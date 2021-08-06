@@ -44,3 +44,13 @@ $('.add-fav-btn').click(function() {
     console.log('something wrong!!!!')
   })
 })
+// import Swal from 'sweetalert2'
+
+// Swal.fire({
+//   title: 'Error!',
+//   text: 'Do you want to continue',
+//   icon: 'error',
+//   confirmButtonText: 'Cool'
+// })
+
+// console.log('swal', Swal);
