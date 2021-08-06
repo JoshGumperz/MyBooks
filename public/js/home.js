@@ -68,14 +68,6 @@ $('.add-fav-btn').click( async function() {
     if(res.redirected) {
       console.log('resssss is good')
 
-    //   await Swal.fire({
-    //   title: 'added!',
-    //   text: 'ADD',
-    //   icon: 'sucess',
-    //   confirmButtonText: 'Cool'
-    // })
-
-
       document.location.replace('/api/login')
     }
   })
