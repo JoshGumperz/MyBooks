@@ -1,47 +1,40 @@
+//When login button click
 $(".login-btn").click(function(){
   document.location.replace('/api/login')
 })
 
+//When fav button click
 $(".fav-btn").click(function(){
   document.location.replace('/api/fav-list')
 })
 
+// WHen search button click
 $( ".search-btn" ).click(function() {
   let input = $('.search-input').val()
-  console.log('clicked')
-  console.log('input----', input)
   if(input) {
     document.location.replace(`/search/${input}`);
   }
-
-
-
 });
 
+//NOT LOGIN - When click on one of the search return item
 $('.book-photo').click(function() {
   var elementId = $(this).attr('id')
-  console.log('element', elementId)
   document.location.replace(`/searchone/${elementId}`)
-  // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
 })
 
+//LOGIN in.
 $('.fav-book-photo').click(function() {
   var elementId = $(this).attr('id')
-  console.log('element', elementId)
   document.location.replace(`fav-list/fav-detail/${elementId}`)
-  // var api = `https://www.googleapis.com/books/v1/volumes/${elementId}`
 })
 
 //add to fav button
 $('.add-fav-btn').click(function() {
   var bookEleId = $(this).siblings('a').attr('id')
-  console.log('this is the id',bookEleId)
-  // console.log('bookELELELLELLE', bookEleId)
   fetch(`/api/fav-list/${bookEleId}`, {
     method: 'POST'
   })
   .then(res => {
-    // console.log('resssssss', res)
     if(res.redirected) {
       console.log('resssss is good')
       document.location.replace('/api/login')

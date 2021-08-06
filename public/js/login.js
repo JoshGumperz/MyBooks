@@ -1,4 +1,3 @@
-console.log("hello")
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -11,7 +10,6 @@ const loginFormHandler = async (event) => {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response)
         if (response.ok) {
             setTimeout(() => {
                 document.location.replace('/');

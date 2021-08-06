@@ -1,10 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models')
 
-// /api/login
-
+// GET -  /api/login
 router.get('/login', (req, res) => {
-    console.log('from api/login-------------->', req.session.loggedIn)
     try {
         if (req.session.loggedIn) {
             res.redirect('/');
@@ -17,6 +15,7 @@ router.get('/login', (req, res) => {
     }
 });
 
+//POST -  /api/login
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
@@ -50,6 +49,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// POST - api/signup
 router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create({
@@ -68,7 +68,7 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-
+// POST - api/logout
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
