@@ -31,8 +31,15 @@ h2 {
   margin-top: 50px;
 }
 
+.search-btn {
+  background: lightgreen;
+  border-radius: 4px;
+  padding: 10px 24px;
+  transition-duration: 0.4s;
+}
+
 .search-btn:hover {
-  background-color: lightgreen;
+  background-color: #4CAF50;
 }
 
 .fav-btn:hover {
