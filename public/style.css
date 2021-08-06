@@ -60,6 +60,7 @@ h2 {
   border-radius: 4px;
   padding: 10px 24px;
   transition-duration: 0.4s;
+  margin: 2px;
 
 }
 
@@ -92,8 +93,9 @@ button:hover {
 }
 
 .container {
-  font-family: monospace;
-  font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 2px;
+  font-size: 20px;
 }
 
 div {
