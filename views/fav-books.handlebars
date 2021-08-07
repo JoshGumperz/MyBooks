@@ -1,6 +1,6 @@
-
+<div class="fav-box">
 {{#each books as |book|}}
-<div>
+<div class="fav-books">
     <a href="#" id="{{book.book_id}}" class="fav-book-photo">
         <p>{{book.name}}</p>
         <img src='{{book.image_link}}'>
@@ -8,3 +8,5 @@
     <button class='remove-fav-btn'>Remove from fav</button>
 </div>
 {{/each}}
+
+</div>

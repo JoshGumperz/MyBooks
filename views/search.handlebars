@@ -1,5 +1,7 @@
-{{#each items as |item|}}
-<div>
+
+<book-container class="book-container">
+  {{#each items as |item|}}
+  <div class="search-box">
 <a href="#" id="{{item.id}}" class="book-photo">
 <p>{{item.volumeInfo.title}}</p>
 {{#if volumeInfo.imageLinks.thumbnail}}
@@ -10,9 +12,12 @@
 </a>
 <button class='add-fav-btn'>Add to fav</button>
 </div>
-
-
 {{/each}}
+</book-container>
+
+
+
+
 
 
 

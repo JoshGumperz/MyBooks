@@ -101,7 +101,7 @@ button:hover {
   width: 300px;
   height: 300px;
   margin-top: 42px;
-  margin-left: 750px;
+  margin-left: 950px;
 
 
 }
@@ -116,7 +116,7 @@ button:hover {
   height: 300px;
   position: fixed;
   margin-top: 40px;
-  margin-left: 400px;
+  margin-left: 625px;
 
 }
 }
@@ -136,4 +136,50 @@ div {
   padding: 2px 10px 2px 10px;
   outline: 0;
   background-color: #f5f5f5;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.add-fav-btn {
+  background: lightgreen;
+  border: 1px solid lightgreen;
+  border-radius: 4px;
+  padding: 10px 24px;
+}
+
+
+.search-box {
+  margin: 10px;
+  padding: 5px;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 20px;
+  background: white;
+  width: 350px;
+  height: 350px;
+  align-items: center;
+  
+}
+
+.fav-books {
+  margin: 10px;
+  padding: 5px;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 20px;
+  background: white;
+  width: 350px;
+  height: 350px;
+  align-items: center;
+}
+
+.fav-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
 }
