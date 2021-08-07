@@ -155,4 +155,11 @@ div {
 .search-box {
   margin: 10px;
   padding: 5px;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 20px;
+  background: white;
+  width: 350px;
+  height: 350px;
+  align-items: center;
 }
