@@ -175,8 +175,11 @@ div {
   width: 350px;
   height: 350px;
   align-items: center;
+}
+
+.fav-box {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+  
 }
