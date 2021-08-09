@@ -1,8 +1,8 @@
+
 body {
     font-family: 'Courier New', Courier, monospace;
     background: cadetblue;
     color: black;
-    margin: 0;
   }
 
 h1 {
@@ -13,7 +13,7 @@ h1 {
 h1, .h1 {
     font-size: calc(1.5rem + 1.5vw);
     background-color: lightblue;
-    margin: 10px;
+    /* margin: 10px; */
   }
 
 title {
@@ -151,6 +151,7 @@ div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .add-fav-btn {
@@ -196,3 +197,28 @@ div {
 .btn-container {
   text-align: center;
   }
+
+  .page-title {
+    background-color: cadetblue;
+  }
+
+ .desciption-text {
+   color: black;
+ }
+
+ a {
+  text-decoration: none;
+  color: black;
+ }
+
+ .des-container {
+   margin: 50px;
+ }
+
+ .home-title-container {
+   width: 100%;
+   background-color: lightblue;
+   top: 0;
+   position: relative;
+   margin-top: 0;
+ }
