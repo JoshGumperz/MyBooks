@@ -70,18 +70,17 @@ $('.add-fav-btn').click(async function () {
     if (res.redirected) {
       console.log("You are not logged in!")
       await Swal.fire({
-        title: 'log in first, stupid!',
+        title: 'Please log in first!',
         text: '🤡',
         icon: 'error',
         showConfirmButton: false,
         timer: 1500
       })
       document.location.replace('/api/login')
-    } 
+    }
     else if (res.ok) {
       await Swal.fire({
-        title: 'added!',
-        text: 'ADD',
+        title: 'Added!',
         icon: 'success',
         showConfirmButton: false,
         timer: 1500
@@ -103,8 +102,7 @@ $('.remove-fav-btn').click(async function () {
       document.location.replace('/api/login')
     } else if (res.ok) {
       await Swal.fire({
-        title: 'removed!',
-        text: 'REMOVE',
+        title: 'Removed!',
         icon: 'success',
         showConfirmButton: false,
         timer: 1500
