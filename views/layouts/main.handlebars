@@ -13,17 +13,19 @@
 
 <body>
   <h1>My Book</h1>
-  <a href="/"><button>Home</button></a>
-  <input class="search-input">
-  <button class="search-btn">Search</button>
-  {{#if loggedIn}}
-  <button class="fav-btn">Favorites</button>
-  {{/if}}
-  {{#if loggedIn}}
-  <button class="logout-btn">Logout</button>
-  {{else}}
-  <button class="login-btn">Login / SignUp</button>
-  {{/if}}
+  <div class="btn-container">
+    <a href="/"><button>Home</button></a>
+    <input class="search-input">
+    <button class="search-btn">Search</button>
+    {{#if loggedIn}}
+    <button class="fav-btn">Favorites</button>
+    {{/if}}
+    {{#if loggedIn}}
+    <button class="logout-btn">Logout</button>
+    {{else}}
+    <button class="login-btn">Login / SignUp</button>
+    {{/if}}
+  </div>
   {{{body}}}
 </body>
 
