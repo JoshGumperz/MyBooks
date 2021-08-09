@@ -1,15 +1,15 @@
-<h1> Book description</h1>
-<div>
+<h1 class="page-title"> Book description</h1>
+<div class="des-container">
     <a href="#" id="{{id}}">
         {{#if volumeInfo.imageLinks.thumbnail}}
         <img src="{{volumeInfo.imageLinks.thumbnail}}">
         {{else}}
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/130px-No-Image-Placeholder.svg.png">
         {{/if}}
-        <h3>BOOK Name: {{volumeInfo.title}}</h3>
-        <p>author:{{volumeInfo.authors}}</p>
-        <p>Description: {{volumeInfo.description}} </p>
-        <p>Release Date: {{volumeInfo.publishedDate}}</p>
+        <h3 class="desciption-text">BOOK Name: {{volumeInfo.title}}</h3>
+        <p class="desciption-text">author:{{volumeInfo.authors}}</p>
+        <p class="desciption-text">Description: {{volumeInfo.description}} </p>
+        <p class="desciption-text">Release Date: {{volumeInfo.publishedDate}}</p>
     </a>
 
     <button class='add-fav-btn'>Add to fav</button>
