@@ -3,44 +3,52 @@ MyBooks
 
 MyBooks is a book database website. Complete with account creation, book search, and the ability to save a list of all your favorite books!
 
-### Prerequisites
-
-In order to use MyBooks, you'll need a device with internet connection, and a browser.
-
-## Getting Started
-
-I've included screenshots of what the site looks like. The site is also linked below so feel free to take a look.
+I've included a gif of what the site looks like. The site is also linked below so feel free to take a look.
 Main features include:
 - A search function that allows you to input a book title information on that book, including the author, the release date, cover photo, and description
 - A save feature which gives the user the ability to save a list of all their favorite books.
 - And account creation
 
-Upon initially loading in to the site you will see a page that looks like this:
-![Screenshot](./public/images/home.png)
+### Prerequisites
 
-If you choose, you can hit the login/signup button to either login to an existing account or create a new account. In which case you will be presented with a page that looks like this:
-![Screenshot](./public/images/login.png)
+In order to use the MyBooks deployed site, all you'll need is a device with internet connection, and a browser. 
 
-After loggin in or signing up successfully, you will be presented with a popup message that looks like this:
-![Screenshot](./public/images/loginup.png)
+But if you want to clone the repository and edit the files, you'll need to have mySQL and Node.js installed. 
 
-Alternatively, if you failed to login or sign up correctly the pop up message will look like this:
-![Screenshot](./public/images/userexistup.png)
+## Getting Started
 
-After searching a book title you will be presented with a search results page containing all of the related search results.
-![Screenshot](./public/images/search.png)
+To view and edit the files you can clone the repo from github using the following command:
 
-From here you can click on any book in the list and get more information on that book.
-![Screenshot](./public/images/detail.png)
+```
+git clone git@github.com:JoshGumperz/MyBooks.git
+```
 
-If you choose, you can also add this book to your favorites list.
-![Screenshot](./public/images/addtofav.png)
+After cloning the repo, mySQL, node and npm must be installed. Type
+```
+npm install
+```
+to install dependencies.
 
-After clicking on the favorites nav button, you will be presented with a page containing all your favorite books.
-![Screenshot](./public/images/fav.png)
+After doing that, create a .env file in the same directory as server.js with the following content
+```
+DB_USER=root
+DB_PASSWORD=<your mySQL password>
+DB_NAME=book_db
+SECRET=<your session secret>
+```
+
+To run the server and compile the react app type:
+```
+npm run start
+```
+
+then go to localhost:3001 in your browser
+
+## Site Picture
+![Site](./public/images/MyBooks_Demo.gif)
 
 ## Built With
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [Handlebars.js](https://handlebarsjs.com/)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Node](https://nodejs.org/en/)
@@ -48,7 +56,7 @@ After clicking on the favorites nav button, you will be presented with a page co
 
 ## Deployed Link
 
-* [See Live Site](https://mysterious-sands-50704.herokuapp.com/)
+* [See Live Site](https://my-books-1337.herokuapp.com/)
 
 
 
