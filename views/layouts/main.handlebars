@@ -5,29 +5,67 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   {{!-- <base href="/">  --}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <title>My Book</title>
+  <title>My Books</title>
 </head>
 
 <body>
-  <div class="home-title-container">
-    <h1>My Book</h1>
-  </div>
-  <div class="btn-container">
-    <a href="/"><button>Home</button></a>
-    <input class="search-input">
-    <button class="search-btn">Search</button>
-    {{#if loggedIn}}
-    <button class="fav-btn">Favorites</button>
-    {{/if}}
-    {{#if loggedIn}}
-    <button class="logout-btn">Logout</button>
-    {{else}}
-    <button class="login-btn">Login / SignUp</button>
-    {{/if}}
-  </div>
+  <header class="header">
+    <nav class="nav-container">
+      <h1 class="logo">MyBooks</h1>
+      <div class="mobile-icon-container">
+         <span class="material-icons-outlined mobile-icon">menu</span>
+      </div>
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        {{#if loggedIn}}
+        <li class="nav-list-item">
+          <a class="nav-link fav-btn">Favorites</a>
+        </li>
+        {{/if}}
+        {{#if loggedIn}}
+        <li class="nav-list-item">
+          <a class="nav-link logout-btn">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-list-item">
+          <a class="nav-link login-btn">Login / SignUp</a>
+        </li>
+        {{/if}}
+      </ul>
+    </nav>
+    <div class="search-container">
+      <h2 class="search-caption">Search For A Book!</h2>
+      <div class="search-form">
+        <input class="search-input">
+        <button class="search-btn"><span>Search</span></button>
+      </div>
+    </div>
+  </header>
+  <aside id="sidebar" class="sidebar-hidden">
+      <div class='sidebar-icon-container'>
+          <span class="material-icons-outlined sidebar-close-icon">close</span>
+      </div>
+      <nav class='sidebar-menu'>
+          <ul class='sidebar-list'>
+              <a href="/" class="sidebar-link">Home</a>
+            {{#if loggedIn}}
+              <a class="sidebar-link fav-btn">Favorites</a>
+            {{/if}}
+            {{#if loggedIn}}
+              <a class="sidebar-link logout-btn">Logout</a>
+            {{else}}
+              <a class="sidebar-link login-btn">Login / SignUp</a>
+            {{/if}}
+          </ul>
+      </nav>
+  </aside>
+
   {{{body}}}
 </body>
 

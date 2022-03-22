@@ -1,3 +1,14 @@
+// toggle sidebar on and off
+const sidebar = $("#sidebar")
+const toggleSidebarOff = () => {
+  sidebar.removeClass("sidebar").addClass("sidebar-hidden")
+}
+const toggleSidebarOn = () => {
+  sidebar.removeClass("sidebar-hidden").addClass("sidebar")
+}
+$(".mobile-icon").click(toggleSidebarOn)
+sidebar.click(toggleSidebarOff)
+
 //When login button click
 $(".login-btn").click(function () {
 
@@ -15,18 +26,11 @@ $(".search-btn").click(async function () {
   let input = $('.search-input').val()
   if (!input) {
     Swal.fire({
-      title: 'Type something!!',
-      text: 'hello',
+      title: 'Please Enter A Book Title Before Searching',
       icon: 'warning',
       width: 500,
       padding: '2em',
-      confirmButtonColor: 'cadetblue',
-      backdrop: `
-    lightblue
-      url("../images/cat1.gif")
-      bottom
-      no-repeat
-    `
+      confirmButtonColor: 'cadetblue'
     })
   }
   if (input) {
@@ -45,13 +49,13 @@ $(".search-btn").click(async function () {
 });
 
 //NOT LOGIN - When click on one of the search return item
-$('.book-photo').click(function () {
+$('.book-box-content').click(function () {
   var elementId = $(this).attr('id')
   document.location.replace(`/searchone/${elementId}`)
 })
 
 //LOGIN in.
-$('.fav-book-photo').click(function () {
+$('.fav-box-content').click(function () {
   var elementId = $(this).attr('id')
 
   document.location.replace(`fav-list/fav-detail/${elementId}`)
@@ -61,7 +65,7 @@ $('.fav-book-photo').click(function () {
 $('.add-fav-btn').click(async function () {
   console.log('add-')
   try {
-    var bookEleId = $(this).siblings('a').attr('id')
+    var bookEleId = $(this).parent().siblings('section').attr('id')
     // bookEleId = "bookId"
     var res = await fetch(`/api/fav-list/${bookEleId}`, {
       method: 'POST'
@@ -71,7 +75,6 @@ $('.add-fav-btn').click(async function () {
       console.log("You are not logged in!")
       await Swal.fire({
         title: 'Please log in first!',
-        text: '🤡',
         icon: 'error',
         showConfirmButton: false,
         timer: 1500
@@ -93,7 +96,7 @@ $('.add-fav-btn').click(async function () {
 
 $('.remove-fav-btn').click(async function () {
   try {
-    var bookEleId = $(this).siblings('a').attr('id')
+    var bookEleId = $(this).parent().siblings('section').attr('id')
     var res = await fetch(`/api/fav-list/${bookEleId}`, {
       method: 'DELETE'
     })

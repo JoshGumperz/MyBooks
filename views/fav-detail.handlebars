@@ -1,15 +1,22 @@
-<h1 class="page-title"> Book description</h1>
-<div class="des-container">
-    <a href="#" id="{{id}}">
-        {{#if volumeInfo.imageLinks.thumbnail}}
-        <img src="{{volumeInfo.imageLinks.thumbnail}}">
-        {{else}}
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png">
-        {{/if}}
-        <h3 class="desciption-text">BOOK Name: {{volumeInfo.title}}</h3>
-        <p class="desciption-text">author:{{volumeInfo.authors}}</p>
-        <p class="desciption-text">Description: {{volumeInfo.description}} </p>
-        <p class="desciption-text">Release Date: {{volumeInfo.publishedDate}}</p>
-    </a>
-    <button class='remove-fav-btn'>Remove from fav</button>
+<div class="book-detail-container">
+    <div class="des-container">
+        <section class="book-detail-content" id="{{id}}">
+            <div class="book-detail-photo-container">
+                {{#if volumeInfo.imageLinks.thumbnail}}
+                <img class="fav-book-photo" src="{{volumeInfo.imageLinks.thumbnail}}">
+                {{else}}
+                <img class="fav-book-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/130px-No-Image-Placeholder.svg.png">
+                {{/if}}
+            </div>
+            <div class="book-detail-text-container">
+                <h3 class="desciption-text title">BOOK Name: {{volumeInfo.title}}</h3>
+                <p class="description-text author">author:  {{volumeInfo.authors}}</p>
+                <p class="description-text description">Description: {{volumeInfo.description}} </p>
+                <p class="description-text release-date">Release Date: {{volumeInfo.publishedDate}}</p>
+        </section>
+        <span class="book-detail-btn-container">  
+            <button class='remove-fav-btn book-detail-btn'>Remove From Favorites</button>
+        </span>
+    </div>
+    <div class="extender">extender</div>
 </div>

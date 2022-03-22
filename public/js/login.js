@@ -16,8 +16,7 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             await Swal.fire({
                 icon: 'success',
-                title: 'Success, you have logged in!',
-                text: '🐈',
+                title: 'Logged in!',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -26,7 +25,7 @@ const loginFormHandler = async (event) => {
             await Swal.fire({
                 position: 'center',
                 icon: 'error',
-                title: 'Incorrect Username or Password 🤡',
+                title: 'Incorrect Username or Password',
                 showConfirmButton: true,
               })
             // alert('Failed to log in.');
@@ -51,7 +50,7 @@ const signupFormHandler = async (event) => {
             await Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Account created! 💖',
+                title: 'Account created!',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -60,7 +59,7 @@ const signupFormHandler = async (event) => {
             await Swal.fire({
                 position: 'center',
                 icon: 'error',
-                title: 'User already exists 😅',
+                title: 'User already exists',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -68,6 +67,7 @@ const signupFormHandler = async (event) => {
         }
     }
 };
+
 
 $('.login-form').on('submit', loginFormHandler)
 $('.signup-form').on('submit', signupFormHandler)

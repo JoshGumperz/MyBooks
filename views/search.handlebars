@@ -1,19 +1,22 @@
-
-<book-container class="book-container">
-  {{#each items as |item|}}
-  <div class="search-box">
-<a href="#" id="{{item.id}}" class="book-photo">
-<p>{{item.volumeInfo.title}}</p>
-{{#if volumeInfo.imageLinks.thumbnail}}
-  <img src="{{volumeInfo.imageLinks.thumbnail}}">
-{{else}}
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/130px-No-Image-Placeholder.svg.png">
-{{/if}}
-</a>
-<button class='add-fav-btn'>Add to fav</button>
+<div class="book-main">
+  <div class="book-container">
+    {{#each items as |item|}}
+    <div class="book-box">
+      <section id="{{item.id}}" class="book-box-content">
+      <p class="book-title">{{item.volumeInfo.title}}</p>
+      {{#if volumeInfo.imageLinks.thumbnail}}
+      <img class="book-photo" src="{{volumeInfo.imageLinks.thumbnail}}">
+      {{else}}
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/130px-No-Image-Placeholder.svg.png">
+      {{/if}}
+      </section>
+      <span class="btn-container">
+        <button class='add-fav-btn'>Add to favorites</button>
+      </span>
+    </div>
+    {{/each}}
+  </div>
 </div>
-{{/each}}
-</book-container>
 
 
 

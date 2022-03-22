@@ -1,12 +1,15 @@
-<div class="fav-box">
-{{#each books as |book|}}
-<div class="fav-books">
-    <a href="#" id="{{book.book_id}}" class="fav-book-photo">
-        <p>{{book.name}}</p>
-        <img src='{{book.image_link}}'>
-    </a>
-    <button class='remove-fav-btn'>Remove from fav</button>
-</div>
-{{/each}}
-
+<div class="fav-container">
+    <div class="fav-box">
+        {{#each books as |book|}}
+        <div class="fav-books">
+            <section href="#" id="{{book.book_id}}" class="fav-box-content">
+                <p class="book-title">{{book.name}}</p>
+                <img class="book-photo" src='{{book.image_link}}'>
+            </section>
+            <span class="btn-container">
+                <button class='remove-fav-btn'>Remove from favorites</button>
+            </span>
+        </div>
+        {{/each}}
+    </div>
 </div>
