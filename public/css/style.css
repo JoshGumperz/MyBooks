@@ -361,11 +361,11 @@ body {
 
 .book-box, .fav-books {
   position: relative;
-  width: 350px;
+  width: 250px;
   margin: 0 1.5em 3em 1.5em;
   padding: 0.5em;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  height: 350px;
+  height: 250px;
   cursor: pointer;
 }
 
@@ -499,6 +499,12 @@ body {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .search-form {
+    width: 100%
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .login-form-container, .signup-form-container {
     width: 95%;
@@ -509,10 +515,6 @@ body {
   }
   .login-label-container, .signup-label-container {
     width: 80%;
-  }
-
-  .search-form {
-    width: 100%
   }
 }
 
