@@ -1,10 +1,10 @@
 // toggle sidebar on and off
 const sidebar = $("#sidebar")
 const toggleSidebarOff = () => {
-  sidebar.removeClass("sidebar").addClass("sidebar-hidden")
+  sidebar.removeClass("sidebar-visible").addClass("sidebar-hidden").css("transition", "0.3s ease-in-out")
 }
 const toggleSidebarOn = () => {
-  sidebar.removeClass("sidebar-hidden").addClass("sidebar")
+  sidebar.removeClass("sidebar-hidden").addClass("sidebar-visible").css("transition", "0.3s ease-in-out")
 }
 $(".mobile-icon").click(toggleSidebarOn)
 sidebar.click(toggleSidebarOff)
